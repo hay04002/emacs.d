@@ -4,6 +4,8 @@
 ;; don't GC during startup to save time
 (setq gc-cons-threshold most-positive-fixnum)
 
+(setq stack-trace-on-error t)
+
 (setq emacs-load-start-time (current-time))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
@@ -131,7 +133,9 @@
                                init-pomodoro
                                init-emacspeak
                                init-artbollocks-mode
-                               init-semantic))
+                               init-cedet
+                               init-semantic
+                               init-ecb))
   (idle-require-mode 1) ;; starts loading
   ;; }}
 
@@ -154,14 +158,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-mode t)
+ '(ecb-layout-window-sizes (quote (("left2" (ecb-directories-buffer-name 0.23076923076923078 . 0.5) (ecb-sources-buffer-name 0.23076923076923078 . 0.4791666666666667)))))
+ '(ecb-options-version "2.40")
  '(git-gutter:handled-backends (quote (svn hg git)))
  '(safe-local-variable-values (quote ((lentic-init . lentic-orgel-org-init))))
- '(session-use-package t nil (session)))
+ '(session-use-package t nil (session))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Ubuntu Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
  '(window-numbering-face ((t (:foreground "DeepPink" :underline "DeepPink" :weight bold))) t))
 
 (setq gc-cons-threshold best-gc-cons-threshold)
